@@ -1,0 +1,19 @@
+run:
+  skip-dirs-use-default: false
+  skip-files:
+    # TODO: I would rather not skip these but it works for now.
+    - zz_generated_constraint.go
+    - zz_generated_version.go
+
+linters:
+  enable: [ goheader ]
+
+linters-settings:
+  goheader:
+    template: |-
+      Copyright (c) {{ YEAR-RANGE }} {{ AUTHOR }}. All rights reserved.
+      Use of this source code is governed by a BSD-style
+      license that can be found in the LICENSE file.
+    values:
+      const:
+        AUTHOR: James Bowes
