@@ -1,3 +1,4 @@
+Compared to [Masterminds/semver](https://github.com/Masterminds/semver):
 ```
 go run golang.org/x/perf/cmd/benchstat -geomean masterminds.txt ours.txt
 name                        old time/op    new time/op    delta
@@ -38,4 +39,38 @@ ParseConstraint/wildcard-8      14.0 ± 0%       4.0 ± 0%  -71.43%  (p=0.000 n=
 ParseConstraint/range-8         22.0 ± 0%       4.0 ± 0%  -81.82%  (p=0.000 n=10+10)
 ParseConstraint/union-8         21.0 ± 0%       7.0 ± 0%  -66.67%  (p=0.000 n=10+10)
 [Geo mean]                      8.96           3.51       -60.81%
+```
+
+Compared to [hashicorp/go-version](https://github.com/hashicorp-go-version) (note that `go-version` does not have feature parity):
+```
+go run golang.org/x/perf/cmd/benchstat -geomean hashicorp.txt ours.txt
+name                     old time/op    new time/op    delta
+Parse/simple-8             1.10µs ± 2%    0.06µs ± 7%   -94.09%  (p=0.000 n=10+9)
+Parse/pre-8                1.26µs ± 3%    0.18µs ± 4%   -85.57%  (p=0.000 n=10+9)
+Parse/build-8              1.35µs ±13%    0.10µs ± 6%   -92.63%  (p=0.000 n=10+9)
+Parse/pre+build-8          1.59µs ± 3%    0.24µs ±12%   -84.61%  (p=0.000 n=9+9)
+ParseConstraint/equal-8    2.14µs ± 2%    0.22µs ± 9%   -89.94%  (p=0.000 n=9+10)
+ParseConstraint/tilde-8    2.64µs ± 6%    0.21µs ± 3%   -91.94%  (p=0.000 n=10+8)
+ParseConstraint/range-8    1.28µs ± 4%    0.25µs ±13%   -80.75%  (p=0.000 n=10+10)
+[Geo mean]                 1.55µs         0.19µs        -87.67%
+
+name                     old alloc/op   new alloc/op   delta
+Parse/simple-8               539B ± 0%       96B ± 0%   -82.19%  (p=0.002 n=8+10)
+Parse/pre-8                  539B ± 0%      148B ± 0%   -72.54%  (p=0.002 n=8+10)
+Parse/build-8                539B ± 0%      101B ± 0%   -81.26%  (p=0.002 n=8+10)
+Parse/pre+build-8            539B ± 0%      160B ± 0%   -70.30%  (p=0.000 n=10+10)
+ParseConstraint/equal-8    1.06kB ± 0%    0.30kB ± 0%   -71.19%  (p=0.000 n=10+10)
+ParseConstraint/tilde-8    1.05kB ± 0%    0.30kB ± 0%   -70.95%  (p=0.000 n=10+10)
+ParseConstraint/range-8      113B ± 1%      304B ± 0%  +169.98%  (p=0.000 n=10+10)
+[Geo mean]                   521B           220B        -57.79%
+
+name                     old allocs/op  new allocs/op  delta
+Parse/simple-8               5.00 ± 0%      1.00 ± 0%   -80.00%  (p=0.000 n=10+10)
+Parse/pre-8                  5.00 ± 0%      4.00 ± 0%   -20.00%  (p=0.000 n=10+10)
+Parse/build-8                5.00 ± 0%      2.00 ± 0%   -60.00%  (p=0.000 n=10+10)
+Parse/pre+build-8            5.00 ± 0%      5.00 ± 0%      ~     (all equal)
+ParseConstraint/equal-8      11.0 ± 0%       4.0 ± 0%   -63.64%  (p=0.000 n=10+10)
+ParseConstraint/tilde-8      10.0 ± 0%       4.0 ± 0%   -60.00%  (p=0.000 n=10+10)
+ParseConstraint/range-8      5.00 ± 0%      4.00 ± 0%   -20.00%  (p=0.000 n=10+10)
+[Geo mean]                   6.18           3.51        -43.13%
 ```
