@@ -79,10 +79,12 @@ I would love your help!
 
 - [Semantic Versioning 2.0.0][semver]
 - [npm semver calculator][calc]
+- [npm semver range BNF][npmbnf]
 - [Benchmarks][bench]
 
 [semver]: https://semver.org
 [calc]: https://semver.npmjs.com/
+[npmbnf]: https://github.com/npm/node-semver/blob/master/range.bnf
 [bench]: https://github.com/jbowes/semver/blob/main/BENCHMARK.md
 
 [godoc]: https://pkg.go.dev/github.com/jbowes/semver
