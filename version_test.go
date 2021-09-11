@@ -181,3 +181,29 @@ func TestCompare_nil(t *testing.T) {
 		t.Errorf("two nil versions are not equal")
 	}
 }
+
+func TestVersion_Prerelease(t *testing.T) {
+	mustParse := func(s string) *semver.Version {
+		v, _ := semver.Parse(s)
+		return v
+	}
+
+	tcs := map[string]struct {
+		in  *semver.Version
+		out string
+	}{
+		"no prerelease":         {mustParse("1.0.0"), ""},
+		"prerelease":            {mustParse("1.0.0-alpha"), "alpha"},
+		"multi-part prerelease": {mustParse("1.0.0-rc.0"), "rc.0"},
+		"nil version":           {nil, ""},
+	}
+
+	for name, tc := range tcs {
+		t.Run(name, func(t *testing.T) {
+			out := tc.in.Prerelease()
+			if out != tc.out {
+				t.Error("bad prerelease. got:", out, "wanted:", tc.out)
+			}
+		})
+	}
+}
