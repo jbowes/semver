@@ -68,7 +68,18 @@ func (v *buildlessVersion) write(b *strings.Builder) {
 //
 // If v has higher precedence than other, 1 is returned. If other has higher
 // precedence, -1 is returned. If the two versions are equal, zero is returned.
+// A nil Version has lower precedence than a non-nil version. Two nil versions
+// have the same precedence.
 func (v *Version) Compare(other *Version) int {
+	switch {
+	case v == nil && other == nil:
+		return 0
+	case v == nil:
+		return -1
+	case other == nil:
+		return 1
+	}
+
 	cmp := v.compareNonPre(other)
 	if cmp == 0 {
 		cmp = v.comparePre(other)
