@@ -162,3 +162,22 @@ func TestCompare(t *testing.T) {
 		})
 	}
 }
+func TestCompare_nil(t *testing.T) {
+	var nv *semver.Version
+	v, err := semver.Parse("0.0.0")
+	if err != nil {
+		t.Fatal("got error parsing test version")
+	}
+
+	if nv.Compare(v) != -1 {
+		t.Errorf("nil version not less than other version")
+	}
+
+	if v.Compare(nv) != 1 {
+		t.Errorf("other version not greater than nil version")
+	}
+
+	if nv.Compare(nv) != 0 {
+		t.Errorf("two nil versions are not equal")
+	}
+}
