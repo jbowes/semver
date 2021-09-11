@@ -144,3 +144,16 @@ func (v *buildlessVersion) comparePre(other *Version) int {
 
 	// build is not used for semver comparison.
 }
+
+// Prerelease returns the prerelease portion of a Version. If the version had
+// no prerelease or is nil, the empty string is returned.
+//
+// Note: This method is considered experimental, and may be removed or changed
+// before v1.0.0
+func (v *Version) Prerelease() string {
+	if v == nil {
+		return ""
+	}
+
+	return strings.Join(v.pre, ".")
+}
