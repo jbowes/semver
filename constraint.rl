@@ -136,7 +136,7 @@ import (
     }
 
     num = ('0' | [1-9] [0-9]*) >numstart @num; # TODO: @num might be wrong
-    wildcard = [xX\*]; # TODO: is this right?
+    wildcard = [xX*];
     major = (num | wildcard >{ bump |= bumpUnbound }) %major %resetnum;
     minor = (num | wildcard >{ bump |= bumpMajor }) %minor %resetnum;
     patch = (num | wildcard >{ bump |= bumpMinor }) %patch %resetnum;

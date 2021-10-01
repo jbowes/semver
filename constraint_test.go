@@ -112,11 +112,13 @@ func TestParseConstraint(t *testing.T) {
 		valid     bool
 		canonical string
 	}{
-		"wildcard":      {"*", true, ">=0.0.0"},
-		"wildcard (eq)": {"=*", true, ">=0.0.0"},
-		"unary":         {"=1.0", true, ">=1.0.0 <1.1.0"},
-		"unary (no op)": {"3.4", true, ">=3.4.0 <3.5.0"},
-		"eq (no value)": {"=", false, ""},
+		"wildcard":          {"*", true, ">=0.0.0"},
+		"wildcard (x)":      {"x", true, ">=0.0.0"},
+		"wildcard (X)":      {"X", true, ">=0.0.0"},
+		"wildcard (    eq)": {"=*", true, ">=0.0.0"},
+		"unary":             {"=1.0", true, ">=1.0.0 <1.1.0"},
+		"unary (no op)":     {"3.4", true, ">=3.4.0 <3.5.0"},
+		"eq (no value)":     {"=", false, ""},
 
 		"less than eq":              {"<=4.5.6", true, "<=4.5.6"},
 		"less than eq (partial)":    {"<=4.5", true, "<4.6.0"},
@@ -145,6 +147,9 @@ func TestParseConstraint(t *testing.T) {
 		"invalid (unary no op leading zero)":   {"02.0", false, ""},
 		"invalid (union leading zero)":         {"2.01 || 15", false, ""},
 		"invalid (union initial leading zero)": {"01 || 15", false, ""},
+
+		"invalid (slash)": {"\\", false, ""},
+		"invalid (char)":  {"a", false, ""},
 
 		"spacing": {">=  2.1.x < 3.1.0", true, ">=2.1.0 <3.1.0"},
 	}
