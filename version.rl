@@ -18,34 +18,19 @@ import (
     action numstart { numSeen = true }
     action resetnum {numSeen = false; u = 0}
     action partstart {
+        partalloc = new (struct{
+            str [2]string
+            uin [2]uint64
+        })
+
         // optimize for eg "-rc.0"
-        v.pre = make([]string, 0, 2)
-        v.preNum = make([]uint64, 0, 2)
+        v.pre = partalloc.str[:0]
+        v.preNum = partalloc.uin[:0]
     }
 
     action num {
         u *= 10
-        switch data[p] {
-        case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-        }
+        u += uint64(data[p] - 48)
     }
 
     action major { v.major = u }
@@ -103,6 +88,11 @@ func Parse(ver string) (*Version, error) {
     var s int
     var u uint64
     var numSeen bool
+
+    var partalloc *struct{
+        str [2]string
+        uin [2]uint64
+    }
 
     v := &Version{}
 

@@ -11,7 +11,7 @@ import (
 
 // This file is generated from constraint.rl. DO NOT EDIT.
 
-//line constraint.rl:175
+//line constraint.rl:160
 
 //line zz_generated_constraint.go:20
 const constraint_start int = 19
@@ -19,7 +19,7 @@ const constraint_error int = 0
 
 const constraint_en_main int = 19
 
-//line constraint.rl:178
+//line constraint.rl:163
 
 var errInvalidConstraint = errors.New("invalid constraint")
 
@@ -84,14 +84,19 @@ func ParseConstraint(con string) (*Constraint, error) {
 	c := &alloc.c
 	c.clauses = alloc.cls[:0]
 
-//line zz_generated_constraint.go:91
+	var partalloc *struct {
+		str [2]string
+		uin [2]uint64
+	}
+
+//line zz_generated_constraint.go:96
 	{
 		cs = constraint_start
 	}
 
-//line constraint.rl:241
+//line constraint.rl:231
 
-//line zz_generated_constraint.go:98
+//line zz_generated_constraint.go:103
 	{
 		if p == pe {
 			goto _test_eof
@@ -193,9 +198,9 @@ func ParseConstraint(con string) (*Constraint, error) {
 		cs = 0
 		goto _out
 	tr57:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:172
+//line constraint.rl:157
 		cl.op = eq
 		expandRange = true
 		bump |= bumpUnbound
@@ -205,365 +210,185 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof20
 		}
 	st_case_20:
-//line zz_generated_constraint.go:210
+//line zz_generated_constraint.go:215
 		goto st0
 	tr4:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr5:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr12:
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr13:
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr21:
-//line constraint.rl:161
+//line constraint.rl:146
 		cl.op = lt
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr22:
-//line constraint.rl:161
+//line constraint.rl:146
 		cl.op = lt
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr25:
-//line constraint.rl:163
+//line constraint.rl:148
 		cl.op = lt | eq
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr26:
-//line constraint.rl:163
+//line constraint.rl:148
 		cl.op = lt | eq
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr29:
-//line constraint.rl:160
+//line constraint.rl:145
 		cl.op = gt
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr30:
-//line constraint.rl:160
+//line constraint.rl:145
 		cl.op = gt
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr33:
-//line constraint.rl:162
+//line constraint.rl:147
 		cl.op = gt | eq
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr34:
-//line constraint.rl:162
+//line constraint.rl:147
 		cl.op = gt | eq
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr36:
-//line constraint.rl:165
+//line constraint.rl:150
 		cl.op = gt | eq
 		caret = true
 		expandRange = true
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr37:
-//line constraint.rl:165
+//line constraint.rl:150
 		cl.op = gt | eq
 		caret = true
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr39:
-//line constraint.rl:164
+//line constraint.rl:149
 		cl.op = gt | eq
 		bump = bumpMinor
 		expandRange = true
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr40:
-//line constraint.rl:164
+//line constraint.rl:149
 		cl.op = gt | eq
 		bump = bumpMinor
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	tr58:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
-//line constraint.rl:140
+//line constraint.rl:125
 		bump |= bumpUnbound
 		goto st21
 	tr59:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st21
 	st21:
@@ -571,7 +396,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof21
 		}
 	st_case_21:
-//line zz_generated_constraint.go:562
+//line zz_generated_constraint.go:387
 		switch data[p] {
 		case 9:
 			goto tr66
@@ -584,12 +409,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr66:
-//line constraint.rl:51
+//line constraint.rl:36
 		cl.major = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -664,12 +489,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st1
 	tr71:
-//line constraint.rl:52
+//line constraint.rl:37
 		cl.minor = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -744,12 +569,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st1
 	tr75:
-//line constraint.rl:53
+//line constraint.rl:38
 		cl.patch = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -824,7 +649,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st1
 	tr80:
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -899,7 +724,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st1
 	tr85:
-//line constraint.rl:55
+//line constraint.rl:40
 
 		cl.pre = append(cl.pre, string(data[s:p]))
 		if numSeen {
@@ -910,7 +735,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -989,7 +814,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof1
 		}
 	st_case_1:
-//line zz_generated_constraint.go:976
+//line zz_generated_constraint.go:801
 		switch data[p] {
 		case 9:
 			goto st1
@@ -1000,12 +825,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr69:
-//line constraint.rl:51
+//line constraint.rl:36
 		cl.major = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1080,12 +905,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st2
 	tr74:
-//line constraint.rl:52
+//line constraint.rl:37
 		cl.minor = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1160,12 +985,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st2
 	tr79:
-//line constraint.rl:53
+//line constraint.rl:38
 		cl.patch = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1240,7 +1065,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st2
 	tr83:
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1315,7 +1140,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st2
 	tr90:
-//line constraint.rl:55
+//line constraint.rl:40
 
 		cl.pre = append(cl.pre, string(data[s:p]))
 		if numSeen {
@@ -1326,7 +1151,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1405,7 +1230,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof2
 		}
 	st_case_2:
-//line zz_generated_constraint.go:1388
+//line zz_generated_constraint.go:1213
 		if data[p] == 124 {
 			goto st3
 		}
@@ -1444,322 +1269,122 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr6:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr14:
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr23:
-//line constraint.rl:161
+//line constraint.rl:146
 		cl.op = lt
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr27:
-//line constraint.rl:163
+//line constraint.rl:148
 		cl.op = lt | eq
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr31:
-//line constraint.rl:160
+//line constraint.rl:145
 		cl.op = gt
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr35:
-//line constraint.rl:162
+//line constraint.rl:147
 		cl.op = gt | eq
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr38:
-//line constraint.rl:165
+//line constraint.rl:150
 		cl.op = gt | eq
 		caret = true
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr41:
-//line constraint.rl:164
+//line constraint.rl:149
 		cl.op = gt | eq
 		bump = bumpMinor
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr60:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:159
+//line constraint.rl:144
 		cl.op = eq
 		expandRange = true
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	tr70:
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st22
 	st22:
@@ -1767,7 +1392,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof22
 		}
 	st_case_22:
-//line zz_generated_constraint.go:1743
+//line zz_generated_constraint.go:1368
 		switch data[p] {
 		case 9:
 			goto tr66
@@ -1783,12 +1408,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr67:
-//line constraint.rl:51
+//line constraint.rl:36
 		cl.major = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1863,12 +1488,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st4
 	tr72:
-//line constraint.rl:52
+//line constraint.rl:37
 		cl.minor = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -1943,12 +1568,12 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st4
 	tr76:
-//line constraint.rl:53
+//line constraint.rl:38
 		cl.patch = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -2023,7 +1648,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st4
 	tr81:
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -2098,7 +1723,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 		goto st4
 	tr86:
-//line constraint.rl:55
+//line constraint.rl:40
 
 		cl.pre = append(cl.pre, string(data[s:p]))
 		if numSeen {
@@ -2109,7 +1734,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 //line constraint.rl:19
 		numSeen = false
 		u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 		c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -2188,7 +1813,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof4
 		}
 	st_case_4:
-//line zz_generated_constraint.go:2160
+//line zz_generated_constraint.go:1785
 		switch data[p] {
 		case 9:
 			goto st1
@@ -2220,13 +1845,13 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr7:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st5
 	tr61:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st5
 	st5:
@@ -2234,7 +1859,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof5
 		}
 	st_case_5:
-//line zz_generated_constraint.go:2206
+//line zz_generated_constraint.go:1831
 		switch data[p] {
 		case 9:
 			goto st6
@@ -2302,13 +1927,13 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr8:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st8
 	tr62:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st8
 	st8:
@@ -2316,7 +1941,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof8
 		}
 	st_case_8:
-//line zz_generated_constraint.go:2288
+//line zz_generated_constraint.go:1913
 		switch data[p] {
 		case 9:
 			goto st8
@@ -2336,13 +1961,13 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr9:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st9
 	tr63:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st9
 	st9:
@@ -2350,7 +1975,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof9
 		}
 	st_case_9:
-//line zz_generated_constraint.go:2322
+//line zz_generated_constraint.go:1947
 		switch data[p] {
 		case 9:
 			goto st10
@@ -2418,13 +2043,13 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr10:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st12
 	tr64:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st12
 	st12:
@@ -2432,7 +2057,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof12
 		}
 	st_case_12:
-//line zz_generated_constraint.go:2404
+//line zz_generated_constraint.go:2029
 		switch data[p] {
 		case 9:
 			goto st12
@@ -2452,13 +2077,13 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr11:
-//line constraint.rl:64
+//line constraint.rl:49
 		idx++
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st13
 	tr65:
-//line constraint.rl:63
+//line constraint.rl:48
 		c.clauses = append(c.clauses, make([]*clause, 0, 2))
 		goto st13
 	st13:
@@ -2466,7 +2091,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof13
 		}
 	st_case_13:
-//line zz_generated_constraint.go:2438
+//line zz_generated_constraint.go:2063
 		switch data[p] {
 		case 9:
 			goto st13
@@ -2486,7 +2111,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr68:
-//line constraint.rl:51
+//line constraint.rl:36
 		cl.major = u
 //line constraint.rl:19
 		numSeen = false
@@ -2497,7 +2122,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof14
 		}
 	st_case_14:
-//line zz_generated_constraint.go:2468
+//line zz_generated_constraint.go:2093
 		switch data[p] {
 		case 42:
 			goto tr42
@@ -2513,40 +2138,20 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr42:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasMinor
-//line constraint.rl:141
+//line constraint.rl:126
 		bump |= bumpMajor
 		goto st23
 	tr43:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasMinor
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st23
 	st23:
@@ -2554,7 +2159,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof23
 		}
 	st_case_23:
-//line zz_generated_constraint.go:2525
+//line zz_generated_constraint.go:2130
 		switch data[p] {
 		case 9:
 			goto tr71
@@ -2567,7 +2172,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr73:
-//line constraint.rl:52
+//line constraint.rl:37
 		cl.minor = u
 //line constraint.rl:19
 		numSeen = false
@@ -2578,7 +2183,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof15
 		}
 	st_case_15:
-//line zz_generated_constraint.go:2548
+//line zz_generated_constraint.go:2153
 		switch data[p] {
 		case 42:
 			goto tr45
@@ -2594,40 +2199,20 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr45:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasPatch
-//line constraint.rl:142
+//line constraint.rl:127
 		bump |= bumpMinor
 		goto st24
 	tr46:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasPatch
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st24
 	st24:
@@ -2635,7 +2220,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof24
 		}
 	st_case_24:
-//line zz_generated_constraint.go:2605
+//line zz_generated_constraint.go:2190
 		switch data[p] {
 		case 9:
 			goto tr75
@@ -2650,14 +2235,14 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr77:
-//line constraint.rl:53
+//line constraint.rl:38
 		cl.patch = u
 //line constraint.rl:19
 		numSeen = false
 		u = 0
 		goto st16
 	tr87:
-//line constraint.rl:55
+//line constraint.rl:40
 
 		cl.pre = append(cl.pre, string(data[s:p]))
 		if numSeen {
@@ -2674,7 +2259,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof16
 		}
 	st_case_16:
-//line zz_generated_constraint.go:2642
+//line zz_generated_constraint.go:2227
 		switch data[p] {
 		case 45:
 			goto st25
@@ -2697,30 +2282,10 @@ func ParseConstraint(con string) (*Constraint, error) {
 	tr49:
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st25
 	st25:
@@ -2728,7 +2293,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof25
 		}
 	st_case_25:
-//line zz_generated_constraint.go:2696
+//line zz_generated_constraint.go:2261
 		switch data[p] {
 		case 9:
 			goto tr80
@@ -2757,57 +2322,17 @@ func ParseConstraint(con string) (*Constraint, error) {
 	tr50:
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st26
 	tr84:
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st26
 	st26:
@@ -2815,7 +2340,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof26
 		}
 	st_case_26:
-//line zz_generated_constraint.go:2783
+//line zz_generated_constraint.go:2308
 		switch data[p] {
 		case 9:
 			goto tr80
@@ -2842,7 +2367,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr78:
-//line constraint.rl:53
+//line constraint.rl:38
 		cl.patch = u
 //line constraint.rl:19
 		numSeen = false
@@ -2853,7 +2378,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof17
 		}
 	st_case_17:
-//line zz_generated_constraint.go:2820
+//line zz_generated_constraint.go:2345
 		switch data[p] {
 		case 45:
 			goto tr51
@@ -2878,9 +2403,14 @@ func ParseConstraint(con string) (*Constraint, error) {
 		s = p
 //line constraint.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		cl.pre = make([]string, 0, 2)
-		cl.preNum = make([]uint64, 0, 2)
+		cl.pre = partalloc.str[:0]
+		cl.preNum = partalloc.uin[:0]
 
 		goto st27
 	tr52:
@@ -2888,36 +2418,21 @@ func ParseConstraint(con string) (*Constraint, error) {
 		s = p
 //line constraint.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		cl.pre = make([]string, 0, 2)
-		cl.preNum = make([]uint64, 0, 2)
+		cl.pre = partalloc.str[:0]
+		cl.preNum = partalloc.uin[:0]
 
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st27
 	tr54:
@@ -2927,30 +2442,10 @@ func ParseConstraint(con string) (*Constraint, error) {
 	tr55:
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line constraint.rl:17
 		s = p
@@ -2960,7 +2455,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof27
 		}
 	st_case_27:
-//line zz_generated_constraint.go:2927
+//line zz_generated_constraint.go:2422
 		switch data[p] {
 		case 9:
 			goto tr85
@@ -2989,7 +2484,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr89:
-//line constraint.rl:55
+//line constraint.rl:40
 
 		cl.pre = append(cl.pre, string(data[s:p]))
 		if numSeen {
@@ -3003,7 +2498,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof18
 		}
 	st_case_18:
-//line zz_generated_constraint.go:2970
+//line zz_generated_constraint.go:2465
 		switch data[p] {
 		case 45:
 			goto tr54
@@ -3028,94 +2523,39 @@ func ParseConstraint(con string) (*Constraint, error) {
 		s = p
 //line constraint.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		cl.pre = make([]string, 0, 2)
-		cl.preNum = make([]uint64, 0, 2)
+		cl.pre = partalloc.str[:0]
+		cl.preNum = partalloc.uin[:0]
 
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st28
 	tr56:
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line constraint.rl:17
 		s = p
 		goto st28
 	tr91:
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st28
 	st28:
@@ -3123,7 +2563,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof28
 		}
 	st_case_28:
-//line zz_generated_constraint.go:3090
+//line zz_generated_constraint.go:2530
 		switch data[p] {
 		case 9:
 			goto tr85
@@ -3152,61 +2592,21 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr47:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasPatch
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st29
 	tr92:
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st29
 	st29:
@@ -3214,7 +2614,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof29
 		}
 	st_case_29:
-//line zz_generated_constraint.go:3181
+//line zz_generated_constraint.go:2581
 		switch data[p] {
 		case 9:
 			goto tr75
@@ -3232,61 +2632,21 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 		goto st0
 	tr44:
-//line constraint.rl:155
+//line constraint.rl:140
 		field |= hasMinor
 //line constraint.rl:18
 		numSeen = true
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st30
 	tr93:
-//line constraint.rl:26
+//line constraint.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st30
 	st30:
@@ -3294,7 +2654,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 			goto _test_eof30
 		}
 	st_case_30:
-//line zz_generated_constraint.go:3261
+//line zz_generated_constraint.go:2621
 		switch data[p] {
 		case 9:
 			goto tr71
@@ -3404,7 +2764,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		if p == eof {
 			switch cs {
 			case 20, 25, 26:
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3477,15 +2837,15 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
 			case 21, 22:
-//line constraint.rl:51
+//line constraint.rl:36
 				cl.major = u
 //line constraint.rl:19
 				numSeen = false
 				u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3558,15 +2918,15 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
 			case 23, 30:
-//line constraint.rl:52
+//line constraint.rl:37
 				cl.minor = u
 //line constraint.rl:19
 				numSeen = false
 				u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3639,15 +2999,15 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
 			case 24, 29:
-//line constraint.rl:53
+//line constraint.rl:38
 				cl.patch = u
 //line constraint.rl:19
 				numSeen = false
 				u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3720,10 +3080,10 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
 			case 27, 28:
-//line constraint.rl:55
+//line constraint.rl:40
 
 				cl.pre = append(cl.pre, string(data[s:p]))
 				if numSeen {
@@ -3734,7 +3094,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 //line constraint.rl:19
 				numSeen = false
 				u = 0
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3807,16 +3167,16 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
 			case 19:
-//line constraint.rl:63
+//line constraint.rl:48
 				c.clauses = append(c.clauses, make([]*clause, 0, 2))
-//line constraint.rl:172
+//line constraint.rl:157
 				cl.op = eq
 				expandRange = true
 				bump |= bumpUnbound
-//line constraint.rl:65
+//line constraint.rl:50
 
 				c.clauses[idx] = append(c.clauses[idx], cl)
 
@@ -3889,9 +3249,9 @@ func ParseConstraint(con string) (*Constraint, error) {
 
 				cl = &clause{}
 
-//line constraint.rl:174
+//line constraint.rl:159
 				done = true
-//line zz_generated_constraint.go:3792
+//line zz_generated_constraint.go:3152
 			}
 		}
 
@@ -3900,7 +3260,7 @@ func ParseConstraint(con string) (*Constraint, error) {
 		}
 	}
 
-//line constraint.rl:242
+//line constraint.rl:232
 
 	if p != eof || !done {
 		return nil, errInvalidConstraint
