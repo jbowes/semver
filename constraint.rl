@@ -17,35 +17,20 @@ import (
     action start { s = p }
     action numstart { numSeen = true }
     action resetnum { numSeen = false; u = 0}
-     action partstart {
+    action partstart {
+        partalloc = new (struct{
+            str [2]string
+            uin [2]uint64
+        })
+
         // optimize for eg "-rc.0"
-        cl.pre = make([]string, 0, 2)
-        cl.preNum = make([]uint64, 0, 2)
+        cl.pre = partalloc.str[:0]
+        cl.preNum = partalloc.uin[:0]
     }
 
     action num {
         u *= 10
-        switch data[p] {
-        case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-        }
+        u += uint64(data[p] - 48)
     }
 
     action major { cl.major = u }
@@ -236,6 +221,11 @@ func ParseConstraint(con string) (*Constraint, error) {
     cl := &alloc.cl
     c := &alloc.c
     c.clauses = alloc.cls[:0]
+
+    var partalloc *struct{
+        str [2]string
+        uin [2]uint64
+    }
 
     %%write init;
     %%write exec;

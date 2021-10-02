@@ -11,7 +11,7 @@ import (
 
 // This file is generated from semver.rl. DO NOT EDIT.
 
-//line version.rl:81
+//line version.rl:66
 
 //line zz_generated_version.go:20
 const semver_start int = 1
@@ -19,7 +19,7 @@ const semver_error int = 0
 
 const semver_en_main int = 1
 
-//line version.rl:84
+//line version.rl:69
 
 var errInvalidVersion = errors.New("invalid version")
 
@@ -43,16 +43,21 @@ func Parse(ver string) (*Version, error) {
 	var u uint64
 	var numSeen bool
 
+	var partalloc *struct {
+		str [2]string
+		uin [2]uint64
+	}
+
 	v := &Version{}
 
-//line zz_generated_version.go:54
+//line zz_generated_version.go:59
 	{
 		cs = semver_start
 	}
 
-//line version.rl:110
+//line version.rl:100
 
-//line zz_generated_version.go:61
+//line zz_generated_version.go:66
 	{
 		if p == pe {
 			goto _test_eof
@@ -111,30 +116,10 @@ func Parse(ver string) (*Version, error) {
 	tr0:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st2
 	st2:
@@ -142,13 +127,13 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof2
 		}
 	st_case_2:
-//line zz_generated_version.go:151
+//line zz_generated_version.go:136
 		if data[p] == 46 {
 			goto tr3
 		}
 		goto st0
 	tr3:
-//line version.rl:51
+//line version.rl:36
 		v.major = u
 //line version.rl:19
 		numSeen = false
@@ -159,7 +144,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof3
 		}
 	st_case_3:
-//line zz_generated_version.go:167
+//line zz_generated_version.go:152
 		if data[p] == 48 {
 			goto tr4
 		}
@@ -170,30 +155,10 @@ func Parse(ver string) (*Version, error) {
 	tr4:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st4
 	st4:
@@ -201,13 +166,13 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof4
 		}
 	st_case_4:
-//line zz_generated_version.go:209
+//line zz_generated_version.go:174
 		if data[p] == 46 {
 			goto tr6
 		}
 		goto st0
 	tr6:
-//line version.rl:52
+//line version.rl:37
 		v.minor = u
 //line version.rl:19
 		numSeen = false
@@ -218,7 +183,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof5
 		}
 	st_case_5:
-//line zz_generated_version.go:225
+//line zz_generated_version.go:190
 		if data[p] == 48 {
 			goto tr7
 		}
@@ -229,30 +194,10 @@ func Parse(ver string) (*Version, error) {
 	tr7:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st12
 	st12:
@@ -260,7 +205,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof12
 		}
 	st_case_12:
-//line zz_generated_version.go:267
+//line zz_generated_version.go:212
 		switch data[p] {
 		case 43:
 			goto tr23
@@ -269,14 +214,14 @@ func Parse(ver string) (*Version, error) {
 		}
 		goto st0
 	tr23:
-//line version.rl:53
+//line version.rl:38
 		v.patch = u
 //line version.rl:19
 		numSeen = false
 		u = 0
 		goto st6
 	tr27:
-//line version.rl:55
+//line version.rl:40
 
 		v.pre = append(v.pre, string(data[s:p]))
 		if numSeen {
@@ -290,7 +235,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof6
 		}
 	st_case_6:
-//line zz_generated_version.go:296
+//line zz_generated_version.go:241
 		switch data[p] {
 		case 45:
 			goto tr9
@@ -313,30 +258,10 @@ func Parse(ver string) (*Version, error) {
 	tr13:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st13
 	tr9:
@@ -348,30 +273,10 @@ func Parse(ver string) (*Version, error) {
 		s = p
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st13
 	st13:
@@ -379,7 +284,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof13
 		}
 	st_case_13:
-//line zz_generated_version.go:385
+//line zz_generated_version.go:290
 		switch data[p] {
 		case 45:
 			goto st13
@@ -426,30 +331,10 @@ func Parse(ver string) (*Version, error) {
 	tr14:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st14
 	tr11:
@@ -457,57 +342,17 @@ func Parse(ver string) (*Version, error) {
 		s = p
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st14
 	tr26:
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st14
 	st14:
@@ -515,7 +360,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof14
 		}
 	st_case_14:
-//line zz_generated_version.go:521
+//line zz_generated_version.go:366
 		switch data[p] {
 		case 45:
 			goto st13
@@ -536,7 +381,7 @@ func Parse(ver string) (*Version, error) {
 		}
 		goto st0
 	tr24:
-//line version.rl:53
+//line version.rl:38
 		v.patch = u
 //line version.rl:19
 		numSeen = false
@@ -547,7 +392,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof8
 		}
 	st_case_8:
-//line zz_generated_version.go:552
+//line zz_generated_version.go:397
 		switch data[p] {
 		case 45:
 			goto tr15
@@ -574,9 +419,14 @@ func Parse(ver string) (*Version, error) {
 	tr15:
 //line version.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		v.pre = make([]string, 0, 2)
-		v.preNum = make([]uint64, 0, 2)
+		v.pre = partalloc.str[:0]
+		v.preNum = partalloc.uin[:0]
 
 //line version.rl:17
 		s = p
@@ -584,36 +434,21 @@ func Parse(ver string) (*Version, error) {
 	tr16:
 //line version.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		v.pre = make([]string, 0, 2)
-		v.preNum = make([]uint64, 0, 2)
+		v.pre = partalloc.str[:0]
+		v.preNum = partalloc.uin[:0]
 
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line version.rl:17
 		s = p
@@ -621,30 +456,10 @@ func Parse(ver string) (*Version, error) {
 	tr19:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line version.rl:17
 		s = p
@@ -654,7 +469,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof15
 		}
 	st_case_15:
-//line zz_generated_version.go:659
+//line zz_generated_version.go:474
 		switch data[p] {
 		case 43:
 			goto tr27
@@ -677,7 +492,7 @@ func Parse(ver string) (*Version, error) {
 		}
 		goto st0
 	tr29:
-//line version.rl:55
+//line version.rl:40
 
 		v.pre = append(v.pre, string(data[s:p]))
 		if numSeen {
@@ -691,7 +506,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof9
 		}
 	st_case_9:
-//line zz_generated_version.go:696
+//line zz_generated_version.go:511
 		switch data[p] {
 		case 45:
 			goto tr18
@@ -714,36 +529,21 @@ func Parse(ver string) (*Version, error) {
 	tr17:
 //line version.rl:20
 
+		partalloc = new(struct {
+			str [2]string
+			uin [2]uint64
+		})
+
 		// optimize for eg "-rc.0"
-		v.pre = make([]string, 0, 2)
-		v.preNum = make([]uint64, 0, 2)
+		v.pre = partalloc.str[:0]
+		v.preNum = partalloc.uin[:0]
 
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line version.rl:17
 		s = p
@@ -751,59 +551,19 @@ func Parse(ver string) (*Version, error) {
 	tr20:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 //line version.rl:17
 		s = p
 		goto st16
 	tr30:
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st16
 	st16:
@@ -811,7 +571,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof16
 		}
 	st_case_16:
-//line zz_generated_version.go:816
+//line zz_generated_version.go:576
 		switch data[p] {
 		case 43:
 			goto tr27
@@ -836,57 +596,17 @@ func Parse(ver string) (*Version, error) {
 	tr8:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st17
 	tr31:
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st17
 	st17:
@@ -894,7 +614,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof17
 		}
 	st_case_17:
-//line zz_generated_version.go:899
+//line zz_generated_version.go:619
 		switch data[p] {
 		case 43:
 			goto tr23
@@ -908,57 +628,17 @@ func Parse(ver string) (*Version, error) {
 	tr5:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st10
 	tr21:
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st10
 	st10:
@@ -966,7 +646,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof10
 		}
 	st_case_10:
-//line zz_generated_version.go:971
+//line zz_generated_version.go:651
 		if data[p] == 46 {
 			goto tr6
 		}
@@ -977,57 +657,17 @@ func Parse(ver string) (*Version, error) {
 	tr2:
 //line version.rl:18
 		numSeen = true
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st11
 	tr22:
-//line version.rl:26
+//line version.rl:31
 
 		u *= 10
-		switch data[p] {
-		case '0':
-		case '1':
-			u += 1
-		case '2':
-			u += 2
-		case '3':
-			u += 3
-		case '4':
-			u += 4
-		case '5':
-			u += 5
-		case '6':
-			u += 6
-		case '7':
-			u += 7
-		case '8':
-			u += 8
-		case '9':
-			u += 9
-		}
+		u += uint64(data[p] - 48)
 
 		goto st11
 	st11:
@@ -1035,7 +675,7 @@ func Parse(ver string) (*Version, error) {
 			goto _test_eof11
 		}
 	st_case_11:
-//line zz_generated_version.go:1040
+//line zz_generated_version.go:680
 		if data[p] == 46 {
 			goto tr3
 		}
@@ -1099,7 +739,7 @@ func Parse(ver string) (*Version, error) {
 		if p == eof {
 			switch cs {
 			case 15, 16:
-//line version.rl:55
+//line version.rl:40
 
 				v.pre = append(v.pre, string(data[s:p]))
 				if numSeen {
@@ -1107,22 +747,22 @@ func Parse(ver string) (*Version, error) {
 				}
 				v.preNum = append(v.preNum, u)
 
-//line version.rl:80
+//line version.rl:65
 				done = true
 			case 13, 14:
-//line version.rl:63
+//line version.rl:48
 				v.build = string(data[s:p])
-//line version.rl:80
+//line version.rl:65
 				done = true
 			case 12, 17:
-//line version.rl:53
+//line version.rl:38
 				v.patch = u
 //line version.rl:19
 				numSeen = false
 				u = 0
-//line version.rl:80
+//line version.rl:65
 				done = true
-//line zz_generated_version.go:1092
+//line zz_generated_version.go:732
 			}
 		}
 
@@ -1131,7 +771,7 @@ func Parse(ver string) (*Version, error) {
 		}
 	}
 
-//line version.rl:111
+//line version.rl:101
 
 	if p != eof || !done {
 		return nil, errInvalidVersion
