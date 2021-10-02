@@ -23,7 +23,7 @@ and testing.
 There are many semver packages. This one aims to be the fastest at parsing
 and comparing values, with low memory usage. On average, this package is roughly
 ten times faster at parsing versions and constraints than the popular
-`Masterminds/semver`  and `hashicorp-go-version` packages. View more stats in
+`Masterminds/semver`  and `hashicorp/go-version` packages. View more stats in
 the [benchmarks][bench].
 
 Versions can be compared with one another to determine which is newer.
