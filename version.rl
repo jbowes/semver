@@ -18,7 +18,7 @@ import (
     action numstart { numSeen = true }
     action resetnum {numSeen = false; u = 0}
     action partstart {
-        partalloc = new (struct{
+        partalloc = new(struct{
             str [2]string
             uin [2]uint64
         })
