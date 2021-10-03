@@ -47,7 +47,7 @@ import (
 
     action build { v.build = string(data[s:p]) }
 
-    num = ('0' | [1-9] [0-9]*) >numstart @num; # TODO: @num might be wrong
+    num = ('0' | [1-9] [0-9]*) >numstart @num;
     major = num %major %resetnum;
     minor = num %minor %resetnum;
     patch = num %patch %resetnum;

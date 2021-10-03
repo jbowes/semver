@@ -120,7 +120,7 @@ import (
         cl = &clause{}
     }
 
-    num = ('0' | [1-9] [0-9]*) >numstart @num; # TODO: @num might be wrong
+    num = ('0' | [1-9] [0-9]*) >numstart @num;
     wildcard = [xX*];
     major = (num | wildcard >{ bump |= bumpUnbound }) %major %resetnum;
     minor = (num | wildcard >{ bump |= bumpMajor }) %minor %resetnum;
