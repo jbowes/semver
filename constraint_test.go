@@ -325,3 +325,10 @@ func TestConstraint_Check(t *testing.T) {
 		})
 	}
 }
+
+func TestConstraintString_nil(t *testing.T) {
+	var c *semver.Constraint
+	if c.String() != "" {
+		t.Error("nil constraint string was not empty")
+	}
+}
