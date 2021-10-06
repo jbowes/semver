@@ -162,6 +162,14 @@ func TestCompare(t *testing.T) {
 		})
 	}
 }
+
+func TestVersionString_nil(t *testing.T) {
+	var v *semver.Version
+	if v.String() != "" {
+		t.Error("nil version string was not empty")
+	}
+}
+
 func TestCompare_nil(t *testing.T) {
 	var nv *semver.Version
 	v, err := semver.Parse("0.0.0")
