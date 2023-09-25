@@ -8,4 +8,8 @@ require (
 	golang.org/x/perf v0.0.0-20230906145419-e9dd5d2713ed
 )
 
-require github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794 // indirect
+require (
+	github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794 // indirect
+	github.com/mattn/go-sqlite3 v1.14.17 // indirect
+	golang.org/x/image v0.12.0 // indirect
+)
