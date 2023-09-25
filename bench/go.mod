@@ -5,5 +5,7 @@ go 1.18
 require (
 	github.com/Masterminds/semver/v3 v3.1.1
 	github.com/hashicorp/go-version v1.6.0
-	golang.org/x/perf v0.0.0-20210220033136-40a54f11e909
+	golang.org/x/perf v0.0.0-20230906145419-e9dd5d2713ed
 )
+
+require github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794 // indirect
