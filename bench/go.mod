@@ -3,7 +3,7 @@ module github.com/jbowes/semver/bench
 go 1.18
 
 require (
-	github.com/Masterminds/semver/v3 v3.1.1
+	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/hashicorp/go-version v1.6.0
 	golang.org/x/perf v0.0.0-20231006134539-cd219cffda85
 )
